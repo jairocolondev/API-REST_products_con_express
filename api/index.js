@@ -8,14 +8,14 @@ const {
 } = require('./middlewares/error.handler');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
 const whitelist = ['http://localhost:5173/', 'https://jairocolon.com'];
 app.use(cors(whitelist));
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Hola, este es mi primer servidor de Backend :)');
 });
 
